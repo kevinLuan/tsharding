@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.look</groupId>
+	<groupId>com.lyh</groupId>
 	<artifactId>tsharding-spring-boot</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -14,7 +14,6 @@
 		<log4j2.version>2.8.2</log4j2.version>
 		<slf4j.version>1.7.25</slf4j.version>
 	</properties>
-
 	<dependencies>
 		<!-- grpc -->
 		<dependency>
@@ -64,31 +63,6 @@
 			<version>4.3.7.RELEASE</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- 公共库 -->
-		<!--<dependency>
-			<groupId>com.look</groupId>
-			<artifactId>look-base-common</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-			<scope>provided</scope>
-		</dependency> -->
-		<!-- log4j -->
-		<!-- <dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
-		 -->
-		
 		<!-- log4j2 -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -111,8 +85,6 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		
-		
 		<!-- Tsharding client -->
 		<dependency>
 			<groupId>com.mogujie.trade</groupId>

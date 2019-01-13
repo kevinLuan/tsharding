@@ -97,9 +97,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- <dependency> <groupId>com.alibaba</groupId> <artifactId>fastjson</artifactId> 
-			<version>${fastjson.version}</version> </dependency> -->
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
