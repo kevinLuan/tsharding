@@ -1,15 +1,12 @@
 package com.mogujie.trade.tsharding.route.orm.base;
 
 import java.lang.reflect.Method;
-
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.util.StringUtils;
-
 import com.mogujie.trade.db.DataSourceRouting;
 import com.mogujie.trade.db.DataSourceRoutingException;
 import com.mogujie.tsharding.filter.AbstractInvocation;
-import com.mogujie.tsharding.filter.HandlerInterceptorAdapterFactory;
 import com.mogujie.tsharding.filter.InvocationProxy;
 
 public class TShardingRoutingInvokeFactory implements InvokerFactory<Class<?>> {
@@ -55,7 +52,7 @@ public class TShardingRoutingInvokeFactory implements InvokerFactory<Class<?>> {
 			@Override
 			public Object invoke(Invocation invocation) throws Throwable {
 				InvocationProxy invocationProxy = markInvocation(invocation);
-				return HandlerInterceptorAdapterFactory.doInvoker(invocationProxy);
+				return invocationProxy.doInvoker();
 			}
 		};
 	}
@@ -86,7 +83,7 @@ public class TShardingRoutingInvokeFactory implements InvokerFactory<Class<?>> {
 			@Override
 			public Object invoke(Invocation invocation) throws Throwable {
 				InvocationProxy invocationProxy = markInvocation(invocation);
-				return HandlerInterceptorAdapterFactory.doInvoker(invocationProxy);
+				return invocationProxy.doInvoker();
 			}
 		};
 	}

@@ -23,7 +23,7 @@ public class GroupTransactionManagerTest {
 		Assert.assertEquals("[productTransactionManager]", Arrays.toString(list.toArray()));
 
 		list = GroupTransactionManager.group("userTransactionManager");
-		Assert.assertEquals("[user1TransactionManager, user0TransactionManager]", Arrays.toString(list.toArray()));
+		Assert.assertEquals("[user0TransactionManager, user1TransactionManager]", Arrays.toString(list.toArray()));
 
 		list = GroupTransactionManager.group("tradeTransactionManager");
 		Assert.assertEquals("[trade0000TransactionManager, trade0001TransactionManager]", Arrays.toString(list.toArray()));

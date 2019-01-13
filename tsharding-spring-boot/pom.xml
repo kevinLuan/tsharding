@@ -119,12 +119,6 @@
 			<artifactId>tsharding-client</artifactId>
 			<version>2.0.0-SNAPSHOT</version>
 		</dependency>
-		<!-- Tsharding cache -->
-		<dependency>
-			<groupId>com.look</groupId>
-			<artifactId>tsharding-cache</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
