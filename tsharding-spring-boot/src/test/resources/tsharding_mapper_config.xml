@@ -2,10 +2,10 @@
 <environments>
 	<environment name="dev">
 		<Mappers>
-			<Mapper class="com.look.tsharding.ext.AMapper"
+			<Mapper class="com.lyh.tsharding.ext.AMapper"
 				dataSource="db_01" table="tab_0001" tables="666" databases="888"
 				isReadWriteSplitting="true" />
-			<Mapper class="com.look.tsharding.ext.BMapper"
+			<Mapper class="com.lyh.tsharding.ext.BMapper"
 				dataSource="db_02" table="tab_x" tables="1" databases="1"
 				isReadWriteSplitting="true" />
 		</Mappers>

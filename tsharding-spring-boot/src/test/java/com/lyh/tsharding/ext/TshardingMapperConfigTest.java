@@ -1,4 +1,4 @@
-package com.look.tsharding.ext;
+package com.lyh.tsharding.ext;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,9 +7,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
-import com.look.tsharding.ext.TshardingMapperConfig;
-import com.look.tsharding.ext.TshardingMapperConfig.EnvironmentConfig;
-import com.look.tsharding.ext.TshardingMapperConfig.Mapper;
+import com.lyh.tsharding.ext.TshardingMapperConfig;
+import com.lyh.tsharding.ext.TshardingMapperConfig.EnvironmentConfig;
+import com.lyh.tsharding.ext.TshardingMapperConfig.Mapper;
 import com.mogujie.trade.db.DataSourceRouting;
 import lombok.SneakyThrows;
 

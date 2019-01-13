@@ -1,4 +1,4 @@
-package com.look.tsharding.config;
+package com.lyh.tsharding.config;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

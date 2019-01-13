@@ -1,4 +1,4 @@
-package com.look.tsharding.utils;
+package com.lyh.tsharding.utils;
 
 import java.util.HashSet;
 import java.util.Set;

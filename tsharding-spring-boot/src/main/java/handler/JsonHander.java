@@ -9,7 +9,7 @@ import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedJdbcTypes;
 import org.apache.ibatis.type.MappedTypes;
 import com.google.protobuf.GeneratedMessageV3;
-import com.look.tsharding.utils.JsonSerialize;
+import com.lyh.tsharding.utils.JsonSerialize;
 
 /**
  * 通用Proto Message转换处理

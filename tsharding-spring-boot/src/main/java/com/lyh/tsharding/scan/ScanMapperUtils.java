@@ -1,4 +1,4 @@
-package com.look.tsharding.scan;
+package com.lyh.tsharding.scan;
 //package com.hivescm.tsharding.scan;
 //
 //import java.util.HashSet;

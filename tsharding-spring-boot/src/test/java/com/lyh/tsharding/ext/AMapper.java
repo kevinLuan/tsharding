@@ -1,4 +1,4 @@
-package com.look.tsharding.ext;
+package com.lyh.tsharding.ext;
 
 import com.mogujie.trade.db.DataSourceRouting;
 

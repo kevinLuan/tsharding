@@ -1,4 +1,4 @@
-package com.look.annotation.test;
+package com.lyh.annotation.test;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

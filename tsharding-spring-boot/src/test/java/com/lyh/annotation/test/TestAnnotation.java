@@ -1,4 +1,4 @@
-package com.look.annotation.test;
+package com.lyh.annotation.test;
 
 import java.io.IOException;
 

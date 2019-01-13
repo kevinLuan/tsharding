@@ -1,4 +1,4 @@
-package com.look.annotation.test;
+package com.lyh.annotation.test;
 
 @ABC(name = "A")
 public class TestMapper {

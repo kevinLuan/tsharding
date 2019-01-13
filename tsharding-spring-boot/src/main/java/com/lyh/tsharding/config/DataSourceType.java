@@ -1,4 +1,4 @@
-package com.look.tsharding.config;
+package com.lyh.tsharding.config;
 
 public enum DataSourceType {
 	Hikari, Druid

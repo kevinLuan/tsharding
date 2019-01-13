@@ -1,4 +1,4 @@
-package com.look.tsharding.config;
+package com.lyh.tsharding.config;
 
 import java.io.InputStream;
 import java.util.Map;
@@ -15,8 +15,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.type.AnnotationMetadata;
-import com.look.tsharding.ext.TshardingMapperConfig;
-import com.look.tsharding.utils.ClassNameHelper;
+import com.lyh.tsharding.ext.TshardingMapperConfig;
+import com.lyh.tsharding.utils.ClassNameHelper;
 import com.mogujie.distributed.transction.ChainedTransactionInteceptor;
 import com.mogujie.distributed.transction.DynamicTransctionManagerFactory;
 import com.mogujie.trade.db.DataSourceScanner;

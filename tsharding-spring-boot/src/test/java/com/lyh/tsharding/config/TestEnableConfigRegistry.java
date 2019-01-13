@@ -1,10 +1,10 @@
-package com.look.tsharding.config;
+package com.lyh.tsharding.config;
 
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
-import com.look.tsharding.utils.ClassNameHelper;
+import com.lyh.tsharding.utils.ClassNameHelper;
 import com.mogujie.trade.db.DataSourceRouting;
 
 public class TestEnableConfigRegistry {
@@ -30,16 +30,14 @@ public class TestEnableConfigRegistry {
       set.add(MyMapper1.class);
       value = ClassNameHelper.build(new String[] {"A", "B"}, set);
       System.out.println(value);
-      Assert.assertEquals("A,com.look.tsharding.config.TestEnableConfigRegistry$MyMapper1,B",
-          value);
+      Assert.assertEquals("com.lyh.tsharding.config.TestEnableConfigRegistry$MyMapper1,A,B", value);
     }
 
     {// 测试自动删除重复Mapper
       value = ClassNameHelper.build(new String[] {"A", "B", "A", "B",
-          "com.look.tsharding.config.TestEnableConfigRegistry$MyMapper1"}, set);
+          "com.lyh.tsharding.config.TestEnableConfigRegistry$MyMapper1"}, set);
       System.out.println(value);
-      Assert.assertEquals("A,com.look.tsharding.config.TestEnableConfigRegistry$MyMapper1,B",
-          value);
+      Assert.assertEquals("com.lyh.tsharding.config.TestEnableConfigRegistry$MyMapper1,A,B", value);
     }
   }
 

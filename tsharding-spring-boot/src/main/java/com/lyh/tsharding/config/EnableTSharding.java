@@ -1,4 +1,4 @@
-package com.look.tsharding.config;
+package com.lyh.tsharding.config;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

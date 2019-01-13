@@ -1,4 +1,4 @@
-package com.look.tsharding.scan;
+package com.lyh.tsharding.scan;
 
 import java.util.Iterator;
 import java.util.Set;
