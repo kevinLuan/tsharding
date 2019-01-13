@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Tsharding配置文件处理器
  * 
- * @author SHOUSHEN LUAN
+ * @author KEVIN LUAN
  */
 @Slf4j
 @Data(staticConstructor = "of")

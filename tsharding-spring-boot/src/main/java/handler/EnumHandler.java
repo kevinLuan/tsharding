@@ -16,17 +16,17 @@ import com.google.protobuf.ProtocolMessageEnum;
 /**
  * 通用枚举转换处理
  * 
- * @author SHOUSHEN LUAN
+ * @author KEVIN LUAN
  *
  */
 @MappedJdbcTypes(value = {JdbcType.TINYINT})
 @MappedTypes({ProtocolMessageEnum.class})
-public class EnumHander extends BaseTypeHandler<ProtocolMessageEnum> {
+public class EnumHandler extends BaseTypeHandler<ProtocolMessageEnum> {
   public Class<?> type;
   private Method method;
-  private static final Logger LOGGER = LoggerFactory.getLogger(EnumHander.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(EnumHandler.class);
 
-  public EnumHander(Class<?> type) throws NoSuchMethodException, SecurityException {
+  public EnumHandler(Class<?> type) throws NoSuchMethodException, SecurityException {
     this.type = type;
     try {
       this.method = type.getMethod("forNumber", int.class);
@@ -35,7 +35,7 @@ public class EnumHander extends BaseTypeHandler<ProtocolMessageEnum> {
     }
   }
 
-  public EnumHander() {}
+  public EnumHandler() {}
 
   @Override
   public void setNonNullParameter(PreparedStatement ps, int i, ProtocolMessageEnum parameter,

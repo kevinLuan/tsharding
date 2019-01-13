@@ -13,12 +13,12 @@ import org.apache.ibatis.type.MappedTypes;
 /**
  * 数据类型转换从：代码中Long类型转到到Mysql中的datetime类型 pojo.Long->mysql.DateTime
  * 
- * @author SHOUSHEN LUAN
+ * @author KEVIN LUAN
  *
  */
 @MappedJdbcTypes(value = {JdbcType.TIMESTAMP})
 @MappedTypes({Long.class, long.class})
-public class DateTimeHander extends BaseTypeHandler<Long> {
+public class DateTimeHandler extends BaseTypeHandler<Long> {
   @Override
   public void setNonNullParameter(PreparedStatement ps, int i, Long parameter, JdbcType jdbcType)
       throws SQLException {

@@ -14,19 +14,19 @@ import com.lyh.tsharding.utils.JsonSerialize;
 /**
  * 通用Proto Message转换处理
  * 
- * @author SHOUSHEN LUAN
+ * @author KEVIN LUAN
  *
  */
 @MappedJdbcTypes(value = {JdbcType.TINYINT})
 @MappedTypes({GeneratedMessageV3.class})
-public class JsonHander extends BaseTypeHandler<GeneratedMessageV3> {
+public class JsonHandler extends BaseTypeHandler<GeneratedMessageV3> {
   public Class<?> type;
 
-  public JsonHander(Class<?> type) throws NoSuchMethodException, SecurityException {
+  public JsonHandler(Class<?> type) throws NoSuchMethodException, SecurityException {
     this.type = type;
   }
 
-  public JsonHander() {}
+  public JsonHandler() {}
 
   @Override
   public void setNonNullParameter(PreparedStatement ps, int i, GeneratedMessageV3 parameter,
