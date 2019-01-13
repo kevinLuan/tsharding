@@ -19,7 +19,6 @@
 	<modules>
 		<module>tsharding-client</module>
  		<module>tsharding-spring-boot</module>
-		<module>tsharding-cache</module>
 	</modules>
 	<dependencies>
 		<dependency>
