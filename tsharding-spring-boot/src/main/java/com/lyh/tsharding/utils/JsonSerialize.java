@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 
 public class JsonSerialize {
-  public static final ObjectMapper mapper = new ObjectMapper();
+  public static ObjectMapper mapper = new ObjectMapper();
   static {
     // mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     // mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
