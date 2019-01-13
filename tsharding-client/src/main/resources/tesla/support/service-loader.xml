@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context  
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <bean id="MapperScannerWithSharding" class="com.mogujie.trade.tsharding.route.orm.MapperScannerWithSharding">
+        <property name="packageName" value="${tesla.orm.mapperPacakge}"/>
+        <property name="mapperLocations" value="classpath*:sqlmap/*/*-mapper.xml"/>
+    </bean>
+
+    <bean id="mapperShardingInitializer" class="com.mogujie.trade.tsharding.route.orm.MapperShardingInitializer"
+          depends-on="MapperScannerWithSharding">
+        <property name="needEnhancedClasses" value="${tsharding.needEnhancedClasses}"/>
+    </bean>
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath*:*.properties"/>
+    </bean>
+
+    <context:component-scan base-package="com.mogujie.trade"/>
+</beans>

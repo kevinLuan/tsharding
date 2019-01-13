@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.mogujie.service.tsharding.dao" />
+	<context:component-scan base-package="com.mogujie.service.tsharding.mapper" />
+	<!-- service-loader -->
+	<bean id="MapperScannerWithSharding"
+		class="com.mogujie.trade.tsharding.route.orm.MapperScannerWithSharding">
+		<property name="packageName" value="${tsharding.orm.mapperPacakge}" />
+		<property name="mapperLocations" value="classpath*:sqlmap/*/*-mapper.xml" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+	</bean>
+
+	<bean id="mapperShardingInitializer"
+		class="com.mogujie.trade.tsharding.route.orm.MapperShardingInitializer"
+		depends-on="MapperScannerWithSharding">
+		<property name="needEnhancedClasses" value="${tsharding.needEnhancedClasses}" />
+	</bean>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath*:*.properties" />
+	</bean>
+
+	<context:component-scan base-package="com.mogujie" />
+	<context:component-scan base-package="com.look.tsharding" />
+	<context:component-scan base-package="com.look.cache" />
+	<!-- Data Source -->
+
+	<!-- HikariCP dataSource -->
+	<bean name="dataSourceFactory" class="com.mogujie.trade.db.HikariDataSourceFactory"></bean>
+
+	<bean name="dataSourceScanner" class="com.mogujie.trade.db.DataSourceScanner">
+		<property name="dataSourceFactory" ref="dataSourceFactory" />
+	</bean>
+
+	<bean name="readWriteSplittingAdvice" class="com.mogujie.trade.db.ReadWriteSplittingAdvice" />
+
+	<!-- 采用@Transactional注解方式使用事务    -->
+	<tx:annotation-driven mode="proxy" />
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<!-- 链接事务管理器 改为程序自动注册 -->
+	<!-- <bean id="userTransactionManager" class="org.springframework.data.transaction.ChainedTransactionManager"> 
+		<constructor-arg> <list> <ref bean="user0TransactionManager" /> <ref bean="user1TransactionManager" 
+		/> </list> </constructor-arg> </bean> -->
+	<!-- 注入拦截器 -->
+	<bean id="cacheMapperHandlerInterceptor"
+		class="com.look.tsharding.auto.cache.CacheMapperHandlerInterceptor" />
+	<!-- Redis client 配置属性 -->
+	<bean class="com.look.cache.config.ConfigurationPropertiesPostProcessor" />
+	<bean
+		class="com.mogujie.distributed.transction.DynamicTransctionManagerFactory" />
+</beans>

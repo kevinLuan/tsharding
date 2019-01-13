@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mogujie.service.tsharding.mapper.UserInfoMapper">
+	<!-- 单数据库，不支持读写分离 -->
+	<sql id="Base_Column_List">
+		id,
+		name,
+		age,
+		sex,
+		nick_name
+	</sql>
+
+	<select id="get" resultType="com.mogujie.service.tsharding.bean.UserInfo">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		user_info
+		WHERE id =#{id}
+	</select>
+	<insert id="insert" parameterType="com.mogujie.service.tsharding.bean.UserInfo" keyProperty="id"
+		useGeneratedKeys="true">
+		<![CDATA[
+		insert into user_info(name,age,sex,nick_name)
+		VALUES(#{name},#{age},#{sex},#{nickName});
+		]]>
+	</insert>
+	<delete id="delete" parameterType="int">
+		DELETE FROM user_info WHERE id=#{id}
+	</delete>
+	<select id="getByName" parameterType="String" resultType="com.mogujie.service.tsharding.bean.UserInfo">
+		SELECT * FROM user_info WHERE name=#{name} limit 1
+	</select>
+	<select id="test_no_slave_datasouce" resultType="int">
+		SELECT 1
+	</select>
+</mapper>

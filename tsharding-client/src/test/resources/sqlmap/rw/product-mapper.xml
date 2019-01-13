@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mogujie.service.tsharding.mapper.ProductMapper">
+	<!-- 单数据库，不支持读写分离 -->
+	<sql id="Base_Column_List">
+		id,
+		name,
+		price
+	</sql>
+
+	<select id="get" resultType="com.mogujie.service.tsharding.bean.Product">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM product WHERE id =#{id}
+	</select>
+	<insert id="insert" parameterType="com.mogujie.service.tsharding.bean.Product" keyProperty="id"
+		useGeneratedKeys="true">
+		<![CDATA[
+		insert into product(name,price)
+		VALUES(#{name},#{price});
+		]]>
+	</insert>
+	<delete id="delete" parameterType="int">
+		DELETE FROM product WHERE id=#{id}
+	</delete>
+	<select id="testFormMasterLoader" parameterType="String" resultType="com.mogujie.service.tsharding.bean.Product">
+		SELECT * FROM product WHERE name=#{name} limit 1
+	</select>
+</mapper>

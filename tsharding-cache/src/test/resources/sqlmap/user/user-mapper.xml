@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mogujie.service.tsharding.mapper.UserMapper">
+
+
+    <select id="getUser" resultType="com.mogujie.service.tsharding.bean.User">
+        SELECT
+        	id,name
+        FROM
+      	user_info
+        WHERE
+        id = #{id}
+        limit 1
+    </select>
+
+	<insert id="insertData" parameterType="com.mogujie.service.tsharding.bean.User" keyProperty="id" useGeneratedKeys="true" >
+		<![CDATA[
+		insert into user_info(id,name)
+		VALUES(#{user.id},#{user.name});
+		]]>
+	 </insert>
+	 
+	 <delete id="delete" parameterType="long">
+	 	DELETE FROM user_info WHERE id=#{id}
+	 </delete>
+	 
+	 <insert id="insertBatch" parameterType="java.util.List" keyProperty="id" useGeneratedKeys="true" >
+		<![CDATA[
+		insert into user_info(id,name)
+		VALUES 
+		]]>
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.id},#{item.name})	
+		</foreach>
+	 </insert>
+</mapper>

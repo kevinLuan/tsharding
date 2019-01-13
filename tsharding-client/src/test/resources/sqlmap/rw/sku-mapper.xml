@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mogujie.service.tsharding.mapper.SplitTableSkuMapper">
+	<sql id="Base_Column_List">
+		id,
+		name,
+		product_id
+	</sql>
+
+	<select id="get" resultType="com.mogujie.service.tsharding.bean.Sku">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM sku WHERE product_id =#{product_id}
+	</select>
+	<insert id="insertData" parameterType="com.mogujie.service.tsharding.bean.Sku"
+		keyProperty="id" useGeneratedKeys="true">
+		<![CDATA[
+		insert into sku(name,product_id)
+		VALUES(#{sku.name},#{sku.product_id});
+		]]>
+	</insert>
+	<delete id="delete" parameterType="int">
+		DELETE FROM sku WHERE
+		product_id=#{product_id}
+	</delete>
+</mapper>
