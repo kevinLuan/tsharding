@@ -132,7 +132,7 @@ public class DataSourceScanner implements BeanDefinitionRegistryPostProcessor, A
 
 				// 兼容只有一个或无TransactionManager的情况
 				if (transcactionManagerCount == 1) {// 若只有一个则添加别名，兼容默认情况
-					registry.registerAlias(transactionManagerBeanName, "transcationManager");
+					registry.registerAlias(transactionManagerBeanName, "transactionManager");
 				} else if (transcactionManagerCount == 0) {
 					// add an empty transcationManager
 					GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
