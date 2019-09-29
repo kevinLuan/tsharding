@@ -7,7 +7,7 @@ package com.mogujie.trade.hander;
  * @CreateTime 2016年8月6日 上午9:12:33
  * @author SHOUSHEN LUAN
  */
-public interface ShardingHander {
+public interface ShardingHandler {
 	/**
 	 * 获取目标datasource
 	 */

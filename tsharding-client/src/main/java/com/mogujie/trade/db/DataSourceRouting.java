@@ -5,12 +5,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.mogujie.trade.hander.DefaultShardingHander;
+import com.mogujie.trade.hander.DefaultShardingHandler;
 import com.mogujie.route.rule.RouteRule;
 import com.mogujie.route.rule.SimpleRouteRule;
-import com.mogujie.trade.hander.DefaultSQLEnhancerHander;
-import com.mogujie.trade.hander.ShardingHander;
-import com.mogujie.trade.hander.SQLEnhancerHander;
+import com.mogujie.trade.hander.DefaultSQLEnhancerHandler;
+import com.mogujie.trade.hander.ShardingHandler;
+import com.mogujie.trade.hander.SQLEnhancerHandler;
 
 /**
  * <strong>DataSource路由</strong>
@@ -56,12 +56,12 @@ public @interface DataSourceRouting {
 	/**
 	 * Sharding 处理
 	 */
-	Class<? extends ShardingHander> shardingHander() default DefaultShardingHander.class;
+	Class<? extends ShardingHandler> shardingHandler() default DefaultShardingHandler.class;
 
 	/**
 	 * SQL增强处理器
 	 */
-	Class<? extends SQLEnhancerHander> sqlEnhancerHander() default DefaultSQLEnhancerHander.class;
+	Class<? extends SQLEnhancerHandler> sqlEnhancerHandler() default DefaultSQLEnhancerHandler.class;
 
 	/**
 	 * 路由规则

@@ -8,7 +8,7 @@ import com.mogujie.route.rule.CRC32RouteRule;
 import com.mogujie.trade.db.DataSourceRouting;
 import com.mogujie.trade.tsharding.annotation.ShardingExtensionMethod;
 import com.mogujie.trade.tsharding.annotation.parameter.ShardingParam;
-import com.mogujie.trade.tsharding.route.orm.MapperResourceEnhancerNew;
+import com.mogujie.trade.tsharding.route.orm.MapperResourceEnhancer;
 
 @DataSourceRouting(dataSource = "user", isReadWriteSplitting = false, table = "user_order", routeRule = CRC32RouteRule.class, tables = 3, databases = 2)
 public interface UserOrderMapper {
@@ -20,7 +20,7 @@ public interface UserOrderMapper {
 	 * @param ids
 	 * @return
 	 */
-	@ShardingExtensionMethod(type = MapperResourceEnhancerNew.class)
+	@ShardingExtensionMethod(type = MapperResourceEnhancer.class)
 	public int join_test(@Param("test") @ShardingParam long test// 路由参数
 			, @Param("id") long id, // 用户ID
 			@Param("ids") List<?> ids);

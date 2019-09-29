@@ -5,7 +5,7 @@ package com.mogujie.trade.hander;
  * @CreateTime 2016年8月6日 上午9:45:06
  * @author SHOUSHEN LUAN
  */
-public interface SQLEnhancerHander {
+public interface SQLEnhancerHandler {
 
 	/**
 	 * 是否存在需要替换的表名称

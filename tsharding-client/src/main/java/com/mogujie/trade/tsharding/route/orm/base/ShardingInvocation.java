@@ -10,7 +10,7 @@ import com.mogujie.trade.db.DataSourceRouting;
 import com.mogujie.trade.hander.MapperFactory;
 import com.mogujie.trade.hander.MapperFactory.ShardingHanderEntry;
 import com.mogujie.trade.tsharding.route.orm.MapperEnhancer;
-import com.mogujie.trade.hander.ShardingHander;
+import com.mogujie.trade.hander.ShardingHandler;
 import com.mogujie.trade.utils.EnhanceMapperMethodUtils;
 
 class ShardingInvocation implements Invocation {
@@ -70,7 +70,7 @@ class ShardingInvocation implements Invocation {
 	}
 
 	private ShardingMeta makeShardingMeta() throws IllegalArgumentException, IllegalAccessException {
-		ShardingHander hander = getShardingHander();
+		ShardingHandler hander = getShardingHander();
 		ShardingMeta shardingMeta = new ShardingMeta();
 		shardingMeta.setShardingParam(hander.getShardingValue());
 		shardingMeta.setTableSuffix(hander.getTableNameSuffix());
@@ -121,11 +121,11 @@ class ShardingInvocation implements Invocation {
 		return shareMethod;
 	}
 
-	private ShardingHander getShardingHander() {
+	private ShardingHandler getShardingHander() {
 		DataSourceRouting routing = shardingHander.getRouting();
-		Class<?> handerClass = routing.shardingHander();
+		Class<?> handerClass = routing.shardingHandler();
 		try {
-			ShardingHander hander = (ShardingHander) handerClass.getConstructor(Class.class, Method.class, Object[].class)
+			ShardingHandler hander = (ShardingHandler) handerClass.getConstructor(Class.class, Method.class, Object[].class)
 					.newInstance(rawMapper, rawMethod, args);
 			return hander;
 		} catch (Throwable e) {

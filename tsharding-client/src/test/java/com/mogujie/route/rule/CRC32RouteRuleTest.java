@@ -8,8 +8,8 @@ import org.junit.Test;
 import com.mogujie.route.rule.CRC32RouteRule;
 import com.mogujie.route.rule.RouteRule;
 import com.mogujie.trade.db.DataSourceRouting;
-import com.mogujie.trade.hander.SQLEnhancerHander;
-import com.mogujie.trade.hander.ShardingHander;
+import com.mogujie.trade.hander.SQLEnhancerHandler;
+import com.mogujie.trade.hander.ShardingHandler;
 
 public class CRC32RouteRuleTest {
 	public CRC32RouteRule crc32RouteRule = new CRC32RouteRule();
@@ -54,12 +54,12 @@ public class CRC32RouteRuleTest {
 		}
 
 		@Override
-		public Class<? extends SQLEnhancerHander> sqlEnhancerHander() {
+		public Class<? extends SQLEnhancerHandler> sqlEnhancerHandler() {
 			return null;
 		}
 
 		@Override
-		public Class<? extends ShardingHander> shardingHander() {
+		public Class<? extends ShardingHandler> shardingHandler() {
 			return null;
 		}
 

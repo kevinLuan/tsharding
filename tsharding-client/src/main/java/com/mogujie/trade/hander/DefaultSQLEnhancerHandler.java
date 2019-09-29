@@ -7,11 +7,11 @@ import com.mogujie.trade.db.DataSourceRouting;
 import com.mogujie.trade.utils.ReplaceTableName;
 import com.mogujie.trade.utils.TShardingLog;
 
-public class DefaultSQLEnhancerHander implements SQLEnhancerHander {
+public class DefaultSQLEnhancerHandler implements SQLEnhancerHandler {
 	protected Class<?> mappedClass;
 	private DataSourceRouting routing;
 
-	public DefaultSQLEnhancerHander(Class<?> mappedClass) {
+	public DefaultSQLEnhancerHandler(Class<?> mappedClass) {
 		this.mappedClass = mappedClass;
 		this.routing = mappedClass.getAnnotation(DataSourceRouting.class);
 	}
