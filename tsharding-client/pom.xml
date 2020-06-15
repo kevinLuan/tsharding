@@ -10,7 +10,7 @@
 		<!-- 升级mybatis版本号，原因：低版本不支持批量插入数据时无法返回自增ID的问题 -->
 		<mybatis.version>3.3.1</mybatis.version>
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
-		<spring.version>4.0.6.RELEASE</spring.version>
+		<spring.version>5.2.7.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<javassist.version>3.19.0-GA</javassist.version>
 		<!-- <fastjson.version>1.2.28</fastjson.version> -->
