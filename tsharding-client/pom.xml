@@ -11,7 +11,7 @@
 		<mybatis.version>3.3.1</mybatis.version>
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
 		<spring.version>4.0.6.RELEASE</spring.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<javassist.version>3.19.0-GA</javassist.version>
 		<!-- <fastjson.version>1.2.28</fastjson.version> -->
 		<slf4j-api.version>1.7.21</slf4j-api.version>
