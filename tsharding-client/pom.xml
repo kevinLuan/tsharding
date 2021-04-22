@@ -8,7 +8,7 @@
 	<properties>
 		<!-- <mybatis.version>3.2.8</mybatis.version> -->
 		<!-- 升级mybatis版本号，原因：低版本不支持批量插入数据时无法返回自增ID的问题 -->
-		<mybatis.version>3.3.1</mybatis.version>
+		<mybatis.version>3.5.6</mybatis.version>
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
